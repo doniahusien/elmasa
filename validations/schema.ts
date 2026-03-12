@@ -1,7 +1,9 @@
 // validations/schema.ts
 import * as yup from "yup";
+import { useTranslations } from "next-intl";
 import { dynamicRules } from "./rules";
-import { TFunction } from "next-intl";  // ✅ only one import block
+
+type TFunction = ReturnType<typeof useTranslations>;
 
 export const registerSchema = (t: TFunction) => {
   const rules = dynamicRules(t);

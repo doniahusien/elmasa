@@ -1,5 +1,7 @@
 import * as yup from "yup";
-import { TFunction } from "next-intl";
+import { useTranslations } from "next-intl";
+
+type TFunction = ReturnType<typeof useTranslations>;
 
 export const dynamicRules = (t: TFunction) => ({
   required: (fieldName?: string) =>
