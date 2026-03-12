@@ -1,0 +1,21 @@
+{
+  "ERRORS": {
+    "required": "هذا الحقل مطلوب",
+    "email_invalid": "البريد الإلكتروني غير صالح",
+    "min_length": "يجب أن يكون الحد الأدنى {limit} أحرف",
+    "max_length": "يجب ألا يتجاوز {limit} أحرف",
+    "passwords_must_match": "كلمات المرور غير متطابقة",
+    "arabic_letters": "يجب أن يحتوي على أحرف عربية فقط",
+    "english_letters": "يجب أن يحتوي على أحرف إنجليزية فقط"
+  },
+  "LABELS": {
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirm_password": "تأكيد كلمة المرور",
+    "this_field": "هذا الحقل"
+  },
+  "BUTTONS": {
+    "register": "تسجيل"
+  }
+}
