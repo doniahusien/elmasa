@@ -20,7 +20,7 @@ export default function Home() {
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = (data: unknown) => console.log(data);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 text-red-400 font-sans dark:bg-black">
