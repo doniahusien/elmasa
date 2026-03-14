@@ -73,5 +73,8 @@
     "important_links":"Important Links",
     "terms":"Terms and conditions",
     "privacy":"Policies and privacy"
+  },
+  "MESSAGES":{
+    "login_success":"Login successfully"
   }
 }

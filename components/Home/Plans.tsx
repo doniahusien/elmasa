@@ -1,54 +1,8 @@
 import { useTranslations } from "next-intl";
 import Card from "../Card";
-export default function Plans() {
+export default function Plans({packages}:{packages:any}) {
   const t = useTranslations();
-  const packages = [
-    {
-      id: 1,
-      title: "باقة الحفل الكلاسيكي",
-      description: "اطلب سعر باقتك مع ميزانيتك",
-      price: 7000,
-      afterPrice: 5000,
-      currency: "ريال",
-      rating: 5,
-      image: "/images/slide1.jpg",
-      badge: "خصم",
-    },
-    {
-      id: 2,
-      title: "باقة الحفل الكلاسيكي",
-      description: "اطلب سعر باقتك مع ميزانيتك",
-      price: 7000,
-      afterPrice: 5000,
 
-      currency: "ريال",
-      rating: 5,
-      image: "/images/slide1.jpg",
-      badge: "خصم",
-    },
-    {
-      id: 3,
-      title: "باقة الحفل الكلاسيكي",
-      description: "اطلب سعر باقتك مع ميزانيتك",
-      price: 7000,
-      afterPrice: 5000,
-      currency: "ريال",
-      rating: 4,
-      image: "/images/slide1.jpg",
-      badge: "خصم",
-    },
-    {
-      id: 4,
-      title: "باقة الحفل الكلاسيكي",
-      description: "اطلب سعر باقتك مع ميزانيتك",
-      price: 7000,
-      afterPrice: 5000,
-      currency: "ريال",
-      rating: 5,
-      image: "/images/slide1.jpg",
-      badge: "خصم",
-    },
-  ];
   return (
     <>
       <section className="container mx-auto px-4 space-y-8">

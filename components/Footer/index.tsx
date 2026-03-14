@@ -1,5 +1,7 @@
 "use client";
 
+import { useMemo } from "react";
+import { usePathname } from "@/i18n/routing";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -14,7 +16,17 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 
 export default function Footer() {
-  const t = useTranslations();
+    const t = useTranslations();
+      const pathname = usePathname();
+    
+      const isAuthRoute = useMemo(
+        () =>
+          /^\/(login|signup|reset-password|forget-password|verify)/.test(
+            pathname ?? "",
+          ),
+        [pathname],
+      );
+ if (isAuthRoute) return null;
 
   return (
     <footer className="bg-secondary-500 text-white">

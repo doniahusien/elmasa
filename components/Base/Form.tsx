@@ -25,7 +25,7 @@ export default function BaseForm<T extends FieldValues>({
 
   return (
     <FormProvider {...methods}>
-      <form className=" max-w-2xl mx-auto flex flex-col justify-center items-center mt-5 gap-5 p-2" onSubmit={methods.handleSubmit(onSubmit)} {...props}>
+      <form className=" max-w-2xl mx-auto flex flex-col justify-center items-center  gap-3 p-2" onSubmit={methods.handleSubmit(onSubmit)} {...props}>
         {children} 
       </form>
     </FormProvider>

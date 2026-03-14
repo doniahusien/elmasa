@@ -9,7 +9,7 @@ export const SignUpSchema = (t: TFunction) => {
 
   return yup.object({
     name: rules.minLength(2).required(t("TITLES.name")),
-    identity: rules.minLength(14).required(t("TITLES.identity")),
+    identity: rules.minLength(10).required(t("TITLES.identity")),
     phone: rules.minLength(10).required(t("TITLES.phone")),
     email: rules.email(),
     password: rules.minLength(8).required(t("TITLES.password")),
@@ -21,7 +21,7 @@ export const loginSchema = (t: TFunction) => {
   const rules = dynamicRules(t);
 
   return yup.object({
-    email: rules.email(),
+    phone: rules.minLength(10).required(t("TITLES.phone")),
     password: rules.minLength(8).required(t("TITLES.password")),
   });
 };
