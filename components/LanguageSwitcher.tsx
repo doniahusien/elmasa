@@ -18,8 +18,8 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <button className='text-light-blue' onClick={toggleLocale} disabled={isPending}>
-      {locale === 'en' ? 'العربية' : 'English'}
+    <button className='text-primary-500' onClick={toggleLocale} disabled={isPending}>
+      {locale === 'en' ? 'Ar' : 'En'}
     </button>
   );
 }

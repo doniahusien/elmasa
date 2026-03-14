@@ -13,7 +13,7 @@ export const dynamicRules = (t: TFunction) => ({
     yup
       .string()
       .email(t('ERRORS.email_invalid'))
-      .required(t('ERRORS.required')),
+      .required(t('ERRORS.required', { name: t('TITLES.email') })),
 
   minLength: (min: number) =>
     yup.string().min(min, t('ERRORS.min_length', { limit: min })),
@@ -35,5 +35,5 @@ export const dynamicRules = (t: TFunction) => ({
       .number()
       .min(min, t('ERRORS.min_length', { limit: min }))
       .max(max, t('ERRORS.max_length', { limit: max }))
-      .required(t('ERRORS.required')),
+      .required(t('ERRORS.required', { name: t('LABELS.this_field') })),
 });

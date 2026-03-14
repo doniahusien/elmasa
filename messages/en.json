@@ -1,4 +1,20 @@
 {
+  "TITLES": {
+    "brand_name": "Elmasa White Palace",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "confirm_password": "Confirm Password",
+    "identity": "Identity",
+    "phone": "Phone Number",
+    "password_confirmation":"Password Confirmation",
+    "OTP": "OTP Verification",
+    "reset_password":"Reset Password",
+    "plans":"plans",
+    "why_us":"Why Us",
+    "gallery":"Gallery",
+    "client_reviews":"Client Reviews"
+  },
   "ERRORS": {
     "required": "This field is required",
     "email_invalid": "Please enter a valid email address",
@@ -6,16 +22,56 @@
     "max_length": "Must not exceed {limit} characters",
     "passwords_must_match": "Passwords do not match",
     "arabic_letters": "Must contain Arabic letters only",
-    "english_letters": "Must contain English letters only"
+    "english_letters": "Must contain English letters only",
+    "invalid_identity": "Identity must be a number between 10 and 14 digits"
   },
   "LABELS": {
+    "client_reviews":"Client Reviews anything opinins",
+    "gallery":"We showcase a selection of photos that reflect the level of service and amenities we offer.",
+    "why_us":"We are committed to providing you with a complete and personalized service, ensuring that your day is remembered with a touch of elegance and sophistication.",
+    "plans":"Choose from our diverse packages that suit all occasions and budgets, with the ability to customize each package to fit your taste and needs.",
+    "reset_password":"Enter your new password to be able to login",
+    "otp":"Enter the 5-digit verification code sent to you",
+    "are_forget_password": "Are you forget your password?",
+    "accept_terms": "Agree terms and conditions",
+    "password_confirmation":"Enter password confirmation",
+    "identity": "Enter your identity",
+    "phone": "Enter your phone number",
+    "password":"Enter your password",
+    "email":"Enter your email",
+    "login":"Welcome back",
     "name": "Name",
-    "email": "Email",
-    "password": "Password",
     "confirm_password": "Confirm Password",
-    "this_field": "This field"
+    "this_field": "This field",
+    "forget_password":"Forget Password?",
+    "no_account":"Don't have an account? ",
+    "create_account":"Create an account",
+    "signup":"Create a new account"
   },
   "BUTTONS": {
-    "register": "Register"
+    "register": "Register",
+    "login":"Login",
+    "send":"Send",
+    "reset_password":"Reset Password",
+    "verify":"Verify",
+    "book_now":"Book Now",
+    "view_gallery":"View Gallery",
+    "see_details":"See Details",
+    "view_more":"View More"
+  },
+  "NAV": {
+    "home": "Home",
+    "exhibition": "Exhibition",
+    "reservations": "Reservations",
+    "login": "Login",
+    "create_account": "Create account",
+    "book_now": "Book now",
+    "notifications": "Notifications",
+    "profile": "Profile"
+  },
+  "FOOTER":{
+    "important_links":"Important Links",
+    "terms":"Terms and conditions",
+    "privacy":"Policies and privacy"
   }
 }
