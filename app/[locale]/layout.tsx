@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Elmasa",
   description:
     "A modern, open-source, and privacy-focused password manager built with Next.js and TypeScript.",
+  icons: {
+    icon: "/logo.svg",
+  }
 };
 
 export default function RootLayout({
