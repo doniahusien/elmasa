@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import Card from "../Card";
-export default function Plans({packages}:{packages:any}) {
+import type { Plan } from "@/types";
+export default function Plans({packages}:{packages:Plan[]}) {
   const t = useTranslations();
 
   return (
