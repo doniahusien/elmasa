@@ -29,7 +29,7 @@ export default function Footer() {
  if (isAuthRoute) return null;
 
   return (
-    <footer className="bg-secondary-500 text-white">
+    <footer className="bg-secondary-500 text-white mt-auto">
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid gap-10 md:grid-cols-3">
           <div className="space-y-4">
@@ -76,8 +76,8 @@ export default function Footer() {
               <Link href="/" className="hover:text-white/90">
                 {t("TITLES.plans")}
               </Link>
-              <Link href="/reservations" className="hover:text-white/90">
-                {t("NAV.reservations")}
+              <Link href="/booking" className="hover:text-white/90">
+                {t("NAV.booking")}
               </Link>
             </div>
           </div>

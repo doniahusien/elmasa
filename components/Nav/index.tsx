@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import LanguageSwitcher from "../LanguageSwitcher";
-
+import Cookies from "js-cookie";
 export default function Nav() {
   const t = useTranslations();
   const pathname = usePathname();
@@ -16,10 +16,17 @@ export default function Nav() {
 
   const isActive = (href: string) => pathname === href;
 
-  const isLoggedIn = true;
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const showAuthButtons = !isLoggedIn;
   const showLoggedInActions = isLoggedIn;
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    const userCookie = Cookies.get("user");
+    setIsLoggedIn(!!userCookie);
+  }, []);
 
   const isAuthRoute = useMemo(
     () =>
@@ -43,6 +50,7 @@ export default function Nav() {
 
   if (isAuthRoute) return null;
 
+  if (!mounted) return null;
   return (
     <header
       className={cn(
@@ -82,22 +90,22 @@ export default function Nav() {
             {t("NAV.home")}
           </Link>
           <Link
-            href="/exhibition"
+            href="/gallery"
             className={cn(
               linkHover,
-              isActive("/exhibition") && "text-primary-500",
+              isActive("/gallery") && "text-primary-500",
             )}
           >
-            {t("NAV.exhibition")}
+            {t("NAV.gallery")}
           </Link>
           <Link
-            href="/reservations"
+            href="/booking"
             className={cn(
               linkHover,
-              isActive("/reservations") && "text-primary-500",
+              isActive("/booking") && "text-primary-500",
             )}
           >
-            {t("NAV.reservations")}
+            {t("NAV.booking")}
           </Link>
         </nav>
 
@@ -144,7 +152,7 @@ export default function Nav() {
 
           {showLoggedInActions && (
             <div className="hidden items-center gap-3 md:flex">
-        <LanguageSwitcher />
+              <LanguageSwitcher />
 
               <Link
                 href="/notifications"
@@ -154,7 +162,7 @@ export default function Nav() {
                 )}
               >
                 <span className="sr-only">{t("NAV.notifications")}</span>
-                <Bell className="h-5 w-5" />
+                <Bell className="size-5" />
               </Link>
               <Link
                 href="/profile"
@@ -164,7 +172,7 @@ export default function Nav() {
                 )}
               >
                 <span className="sr-only">{t("NAV.profile")}</span>
-                <User className="h-5 w-5" />
+                <User className="size-5" />
               </Link>
               <Link
                 href="/booking"
@@ -192,26 +200,26 @@ export default function Nav() {
               {t("NAV.home")}
             </Link>
             <Link
-              href="/exhibition"
+              href="/gallery"
               className={cn(
                 "rounded-md px-3 py-2 text-sm",
                 baseTextColor,
-                isActive("/exhibition") && "bg-white/10",
+                isActive("/gallery") && "bg-white/10",
               )}
               onClick={() => setMobileOpen(false)}
             >
-              {t("NAV.exhibition")}
+              {t("NAV.gallery")}
             </Link>
             <Link
-              href="/reservations"
+              href="/booking"
               className={cn(
                 "rounded-md px-3 py-2 text-sm",
                 baseTextColor,
-                isActive("/reservations") && "bg-white/10",
+                isActive("/booking") && "bg-white/10",
               )}
               onClick={() => setMobileOpen(false)}
             >
-              {t("NAV.reservations")}
+              {t("NAV.booking")}
             </Link>
 
             {showAuthButtons && (
@@ -247,30 +255,30 @@ export default function Nav() {
                   href="/booking"
                   className={cn(
                     "rounded-md px-3 py-2 text-sm font-semibold",
-                    "bg-amber-500 text-white hover:bg-amber-400",
+                    "bg-primary-500 text-white hover:bg-primary-400",
                     "flex items-center gap-2",
                   )}
                   onClick={() => setMobileOpen(false)}
                 >
-                  <BookOpen className="h-4 w-4" />
+                  <BookOpen className="size-4" />
                   {t("NAV.book_now")}
                 </Link>
                 <Link
                   href="/notifications"
                   className={cn(
-                    "rounded-md px-3 py-2 text-sm",
+                    "rounded-md px-3 py-2 text-sm flex items-center gap-2",
                     baseTextColor,
                     isActive("/notifications") && "bg-white/10",
                   )}
                   onClick={() => setMobileOpen(false)}
                 >
-                  <Bell className="h-5 w-5" />
+                  <Bell className="size-5" />
                   {t("NAV.notifications")}
                 </Link>
                 <Link
                   href="/profile"
                   className={cn(
-                    "rounded-md px-3 py-2 text-sm",
+                    "rounded-md px-3 py-2 text-sm flex items-center gap-2",
                     baseTextColor,
                     isActive("/profile") && "bg-white/10",
                   )}

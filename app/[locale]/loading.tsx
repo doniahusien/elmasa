@@ -5,7 +5,7 @@ function Skeleton({ className }: { className?: string }) {
 export function CarouselSkeleton() {
   return (
     <div className="space-y-3">
-      <Skeleton className="h-[280px] w-full rounded-xl" />
+      <Skeleton className="h-70 w-full rounded-xl" />
       <div className="flex justify-center gap-2">
         {Array.from({ length: 4 }).map((_, i) => (
           <Skeleton key={i} className="size-2 rounded-full" />

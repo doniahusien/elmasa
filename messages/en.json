@@ -61,8 +61,8 @@
   },
   "NAV": {
     "home": "Home",
-    "exhibition": "Exhibition",
-    "reservations": "Reservations",
+    "gallery": "gallery",
+    "booking": "booking",
     "login": "Login",
     "create_account": "Create account",
     "book_now": "Book now",

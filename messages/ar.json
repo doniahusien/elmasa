@@ -63,8 +63,8 @@
   },
   "NAV": {
     "home": "الرئيسية",
-    "exhibition": "المعرض",
-    "reservations": "الحجوزات",
+    "gallery": "المعرض",
+    "booking": "الحجوزات",
     "login": "تسجيل الدخول",
     "create_account": "انشاء حساب",
     "book_now": "احجز الآن",

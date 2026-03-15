@@ -10,45 +10,8 @@ import "swiper/css/navigation";
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
 import { MoveLeft, MoveRight, Star } from "lucide-react";
 
-const reviews = [
-  {
-    id: 1,
-    name: "أحمد جمال",
-    rating: 4.5,
-    quote:
-      "يوضع هنا عبارة اقتباس لتسليط الضوء على تقديم اقتباس مختصر يعبر عن فكرة أو مفهوم مهم.",
-  },
-  {
-    id: 2,
-    name: "سارة محمد",
-    rating: 4,
-    quote:
-      "يُعبر هذا النص عن تجربة العميل مع جودة الخدمة والاهتمام بالتفاصيل طوال فترة التعاون.",
-  },
-  {
-    id: 3,
-    name: "طارق علي",
-    rating: 4.5,
-    quote:
-      "تجربة رائعة مع فريق يهتم بكل التفاصيل ويجعل كل شيء يسير بسلاسة ويسر.",
-    },
-  {
-    id: 352,
-    name: "طارق علي",
-    rating: 4.5,
-    quote:
-      "تجربة رائعة مع فريق يهتم بكل التفاصيل ويجعل كل شيء يسير بسلاسة ويسر.",
-  },
-  {
-    id: 37,
-    name: "طارق علي",
-    rating: 4.5,
-    quote:
-      "تجربة رائعة مع فريق يهتم بكل التفاصيل ويجعل كل شيء يسير بسلاسة ويسر.",
-  },
-];
-
-export default function Reviews() {
+import type { Reviews } from "@/types";
+export default function Reviews({ reviewsData }: { reviewsData: Reviews }) {
   const t = useTranslations();
   return (
     <section className="bg-primary-50 py-12">
@@ -109,7 +72,7 @@ export default function Reviews() {
           }}
           modules={[EffectCoverflow, Pagination, Navigation]}
         >
-          {reviews.map((review) => (
+          {reviewsData?.reviews.map((review) => (
             <SwiperSlide key={review.id}>
               <div className="flex  flex-col justify-between rounded-2xl bg-white p-4 shadow-sm">
                 <div className="flex items-start justify-between gap-4">
@@ -138,7 +101,7 @@ export default function Reviews() {
                 </div>
 
                 <p className="mt-6 text-sm leading-relaxed text-gray-600">
-                  {review.quote}
+                  {review.description}
                 </p>
 
                 <p className="mt-6 text-right font-semibold text-gray-800">
