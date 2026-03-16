@@ -9,7 +9,16 @@ export interface SignUpFormData {
   name: string;
   email: string;
   password: string;
-  identity: number;
+  identity_id: string;
+  phone: string;
+  confirmPassword: string;
+}
+
+export interface SignUpRequest {
+  name: string;
+  email: string;
+  password: string;
+  identity_id: string;
   phone: string;
 }
 
@@ -35,7 +44,6 @@ export interface ApiResponse<T> {
   status: number;
   message: string;
 }
-
 
 export interface User {
   id: number;

@@ -9,11 +9,13 @@ export const SignUpSchema = (t: TFunction) => {
 
   return yup.object({
     name: rules.minLength(2).required(t("TITLES.name")),
-    identity: rules.minLength(10).required(t("TITLES.identity")),
+    identity_id: rules.minLength(10).required(t("TITLES.identity")),
     phone: rules.minLength(10).required(t("TITLES.phone")),
     email: rules.email(),
     password: rules.minLength(8).required(t("TITLES.password")),
-    confirmPassword: rules.passwordConfirmed("password").required(t("TITLES.password_confirmation")),
+    confirmPassword: rules
+      .passwordConfirmed("password")
+      .required(t("TITLES.password_confirmation")),
   });
 };
 
@@ -25,7 +27,6 @@ export const loginSchema = (t: TFunction) => {
     password: rules.minLength(8).required(t("TITLES.password")),
   });
 };
-
 
 export const forgetSchema = (t: TFunction) => {
   const rules = dynamicRules(t);
@@ -39,6 +40,8 @@ export const resetSchema = (t: TFunction) => {
 
   return yup.object({
     password: rules.minLength(8).required(t("TITLES.password")),
-    confirmPassword: rules.passwordConfirmed("password").required(t("TITLES.password_confirmation")),
+    confirmPassword: rules
+      .passwordConfirmed("password")
+      .required(t("TITLES.password_confirmation")),
   });
 };

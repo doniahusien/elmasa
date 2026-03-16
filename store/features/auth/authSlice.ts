@@ -34,8 +34,8 @@ const authSlice = createSlice({
       .addCase(loginThunk.fulfilled, (state, action) => {
         state.loading = false;
 
-        state.user = action.payload.data.user;
-        state.token = action.payload.data.token;
+        state.user = action.payload;
+        state.token = action.payload.token;
       })
       .addCase(loginThunk.rejected, (state, action) => {
         state.loading = false;
@@ -51,8 +51,8 @@ const authSlice = createSlice({
       .addCase(signUpThunk.fulfilled, (state, action) => {
         state.loading = false;
 
-        state.user = action.payload.data.user;
-        state.token = action.payload.data.token;
+        state.user = action.payload;
+        state.token = action.payload.token;
       })
       .addCase(signUpThunk.rejected, (state, action) => {
         state.loading = false;

@@ -8,7 +8,7 @@ type BaseFormProps<T extends FieldValues> = {
   onSubmit: (data: T) => void;
   defaultValues?: DefaultValues<T>;
   resolver?: Resolver<T>;
-} & HTMLAttributes<HTMLFormElement>;
+} & Omit<HTMLAttributes<HTMLFormElement>, 'onSubmit'>;
 
 export default function BaseForm<T extends FieldValues>({
   children,

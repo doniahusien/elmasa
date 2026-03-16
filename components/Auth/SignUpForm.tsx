@@ -23,14 +23,9 @@ export default function SignUpForm() {
   return (
     <BaseForm<SignUpFormData>
       onSubmit={async (data) => {
+        const { confirmPassword, ...signupData } = data;
         const result = await dispatch(
-          signUpThunk({
-            name: data.name,
-            identity_id: data.identity,
-            email: data.email,
-            phone: data.phone,
-            password: data.password,
-          }),
+          signUpThunk(signupData),
         );
         if (signUpThunk.fulfilled.match(result)) {
           showSuccess(t("MESSAGES.signup_success"));
@@ -49,7 +44,7 @@ export default function SignUpForm() {
       />
       <FormField
         label={t("TITLES.identity")}
-        name="identity"
+        name="identity_id"
         component={Input}
         placeholder={t("LABELS.identity")}
         icon={User}

@@ -22,7 +22,7 @@ export default function LoginForm() {
 
   return (
     <BaseForm<LoginFormData>
-      onSubmit={async (data) => {
+      onSubmit={async (data: LoginFormData) => {
         const result = await dispatch(
           loginThunk({ 'phone': data.phone, 'password': data.password }),
         );
