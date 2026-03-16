@@ -4,7 +4,6 @@ import { useMemo } from "react";
 import { usePathname } from "@/i18n/routing";
 import Image from "next/image";
 import {
-  ArrowRight,
   Facebook,
   Instagram,
   MapPin,
