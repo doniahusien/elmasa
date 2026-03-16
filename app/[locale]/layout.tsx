@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Elmasa",
   description:
     "A modern, open-source, and privacy-focused password manager built with Next.js and TypeScript.",
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function RootLayout({
@@ -21,13 +24,15 @@ export default function RootLayout({
   const locale = useLocale();
 
   return (
-    <html lang="en" dir={locale === "ar" ? "rtl" : "ltr"}>
+    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body className={`${changa.variable} antialiased`}>
         <NextIntlClientProvider>
           <StoreProvider>
-            <Nav />
-            {children}
-            <Footer/>
+            <div className="flex flex-col min-h-screen">
+              <Nav />
+              {children}<Footer />
+                              
+            </div>
           </StoreProvider>
           <Toaster
             position="top-right"

@@ -9,12 +9,29 @@ import { useTranslations } from "next-intl";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SignUpSchema } from "@/validations/schema";
 import { CheckboxBasic } from "../Base/CheckBox";
+import { signUpThunk } from "@/store/features/auth/authThunk";
+import { showSuccess } from "@/lib/toast";
+import { useRouter } from "next/navigation";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 
 export default function SignUpForm() {
   const t = useTranslations();
+  const dispatch = useAppDispatch();
+  const router = useRouter();
+  const { loading, error } = useAppSelector((state) => state.auth);
+
   return (
     <BaseForm<SignUpFormData>
-      onSubmit={(data) => console.log(data)}
+      onSubmit={async (data) => {
+        const { confirmPassword, ...signupData } = data;
+        const result = await dispatch(
+          signUpThunk(signupData),
+        );
+        if (signUpThunk.fulfilled.match(result)) {
+          showSuccess(t("MESSAGES.signup_success"));
+          router.push("/");
+        }
+      }}
       resolver={yupResolver(SignUpSchema(t))}
     >
       <h2 className="font-medium text-st2 md:text-h4">{t("LABELS.signup")}</h2>
@@ -27,7 +44,7 @@ export default function SignUpForm() {
       />
       <FormField
         label={t("TITLES.identity")}
-        name="identity"
+        name="identity_id"
         component={Input}
         placeholder={t("LABELS.identity")}
         icon={User}
@@ -61,9 +78,11 @@ export default function SignUpForm() {
         type="password"
         icon={Lock}
       />
-      <CheckboxBasic  label={t("LABELS.accept_terms")} />
-      <Button type="submit" className="w-full">
-        {t("BUTTONS.register")}
+      <CheckboxBasic label={t("LABELS.accept_terms")} />
+      {error && <p className="text-sm text-red-500">{error}</p>}
+
+      <Button type="submit" className="w-full" disabled={loading}>  
+        {loading ? '...' : t("BUTTONS.register")}
       </Button>
     </BaseForm>
   );

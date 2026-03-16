@@ -1,5 +1,7 @@
 "use client";
 
+import { useMemo } from "react";
+import { usePathname } from "@/i18n/routing";
 import Image from "next/image";
 import {
   ArrowRight,
@@ -14,10 +16,20 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 
 export default function Footer() {
-  const t = useTranslations();
+    const t = useTranslations();
+      const pathname = usePathname();
+    
+      const isAuthRoute = useMemo(
+        () =>
+          /^\/(login|signup|reset-password|forget-password|verify)/.test(
+            pathname ?? "",
+          ),
+        [pathname],
+      );
+ if (isAuthRoute) return null;
 
   return (
-    <footer className="bg-secondary-500 text-white">
+    <footer className="bg-secondary-500 text-white mt-auto">
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid gap-10 md:grid-cols-3">
           <div className="space-y-4">
@@ -64,8 +76,8 @@ export default function Footer() {
               <Link href="/" className="hover:text-white/90">
                 {t("TITLES.plans")}
               </Link>
-              <Link href="/reservations" className="hover:text-white/90">
-                {t("NAV.reservations")}
+              <Link href="/booking" className="hover:text-white/90">
+                {t("NAV.booking")}
               </Link>
             </div>
           </div>

@@ -1,22 +1,30 @@
-import {  ComponentType } from "react"
+import { ComponentType } from "react";
 
 export interface LoginFormData {
-  email: string
-  password: string
+  phone: string;
+  password: string;
 }
 
 export interface SignUpFormData {
-  name: string
-  email: string
-  password: string
-  confirmPassword: string
-  identity: number
-  phone: string
+  name: string;
+  email: string;
+  password: string;
+  identity_id: string;
+  phone: string;
+  confirmPassword: string;
+}
+
+export interface SignUpRequest {
+  name: string;
+  email: string;
+  password: string;
+  identity_id: string;
+  phone: string;
 }
 
 export interface ResetFormData {
-  password: string
-  confirmPassword: string
+  password: string;
+  confirmPassword: string;
 }
 export type Feature = {
   id: number;
@@ -30,3 +38,20 @@ export type Feature = {
     en: string;
   };
 };
+
+export interface ApiResponse<T> {
+  data: T;
+  status: number;
+  message: string;
+}
+
+export interface User {
+  id: number;
+  email: string;
+  name: string;
+  otp_verified: number;
+  token: string;
+}
+export interface LoginResponse<ApiResponse> {
+  data: User;
+}
